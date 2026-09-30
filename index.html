@@ -6,7 +6,7 @@
 <title>Fluency · immersa academy</title>
 <meta name="description" content="Fluency, un proceso de transformación diseñado para adultos hispanohablantes que quieren desbloquear su inglés y hablarlo con confianza. By teacher Isa.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Fluency · Salir del “lo entiendo, pero no hablo” sí es posible">
+<meta property="og:title" content="Fluency · Salir del “lo entiendo, pero no lo hablo” sí es posible">
 <meta property="og:description" content="Un proceso de transformación para adultos hispanohablantes que quieren desbloquear su inglés. By teacher Isa.">
 <meta property="og:image" content="img/isa-hero.png">
 <meta name="theme-color" content="#5bbcc4">
@@ -24,6 +24,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:"Kumbh Sans",system-ui,sans-serif;color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;
   background:linear-gradient(180deg,var(--mint) 0%,var(--mint-2) 50%,#f3f8f7 100%);}
 img{max-width:100%;height:auto;display:block}
@@ -60,8 +61,9 @@ section{padding:80px 0}
 /* HERO */
 .hero{background:#fff;border-radius:0 0 36px 36px;padding:36px 0 0;position:relative;overflow:hidden}
 .hero .wrap{position:relative}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:32px;min-height:560px}
-.hero h1{font-size:clamp(2.4rem,4.6vw,3.35rem);letter-spacing:-.01em;margin-bottom:14px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:32px;min-height:560px}
+.hero h1 .nw{white-space:nowrap}
+.hero h1{font-size:clamp(1.8rem,3.05vw,2.5rem);letter-spacing:-.01em;margin-bottom:14px}
 .hero h1 b{font-weight:800}
 .hero p{font-size:1.18rem;max-width:520px;color:var(--ink);margin-bottom:32px}
 .hero p b{font-weight:800}
@@ -123,9 +125,8 @@ section{padding:80px 0}
 /* TESTIMONIOS */
 .testi h2{font-weight:800;margin-bottom:40px}
 .testi-video{margin-bottom:120px}
-.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 60px;max-width:960px;margin:0 auto}
-.t-grid .col-b{margin-top:-40px}
-.t-stack{display:flex;flex-direction:column;gap:64px}
+.t-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:72px 56px;align-items:start;max-width:980px;margin:0 auto;padding:34px 0 0 28px}
+.t-grid .t{margin:0}
 .t{position:relative;background:var(--peach);border-radius:18px;padding:26px 20px 24px;text-align:center;box-shadow:0 12px 26px -14px rgba(6,1,38,.22);font-size:.95rem;color:var(--ink)}
 .t .av{position:absolute;left:-28px;top:-30px;width:66px;height:66px;border-radius:50%;overflow:hidden;border:3px solid #fff;background:#fff;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)}
 .t .av img{position:absolute;left:50%;top:50%;height:calc(var(--s) * 100%);width:auto;max-width:none;transform:translate(calc(-50% + var(--x,0%)),-50%)}
@@ -189,7 +190,9 @@ section{padding:80px 0}
 .faq-a{padding:0 24px 22px;color:var(--ink);font-size:.98rem}
 .faq-a p+ul,.faq-a p+p{margin-top:10px}
 .faq-a ul{padding-left:20px;display:grid;gap:4px;margin-top:10px}
-@media (max-width:720px){.faq-item summary{padding:16px 18px;font-size:1rem}.faq-a{padding:0 18px 18px}}
+@media (max-width:720px){
+  .hero h1 .nw{white-space:normal}.hero h1 .br-d{display:none}
+  .hero h1{font-size:clamp(2rem,8.5vw,2.6rem)}.faq-item summary{padding:16px 18px;font-size:1rem}.faq-a{padding:0 18px 18px}}
 
 /* FOOTER */
 .footer-card{background:var(--peach);border-radius:22px;padding:44px 56px 40px;position:relative;overflow:hidden}
@@ -226,10 +229,7 @@ section{padding:80px 0}
   section{padding:64px 0}
   .cols5{grid-template-columns:repeat(3,1fr);row-gap:10px}
   .col:nth-child(4){border-left:0}
-  .t-grid{grid-template-columns:1fr 1fr;gap:56px 48px}
-  .t-grid .col-b{margin-top:0}
-  .t-stack,.t-grid .col-c{display:contents}
-  .t-grid{align-items:start}
+  .t-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px 48px}
   .price{grid-template-columns:1fr;padding:40px 28px}
   .plan{border-right:0;border-bottom:1px solid #e3e6e6;padding:0 0 32px}
   .inc{padding:32px 0 0}
@@ -262,10 +262,9 @@ section{padding:80px 0}
   .testi h2{margin-bottom:28px}
   .testi-video{margin-bottom:64px}
   /* Testimonios en carrusel deslizable */
-  .t-grid{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:flex-start;margin:0 -18px;padding:34px 18px 20px 40px;scrollbar-width:none}
+  .t-grid{display:flex;gap:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;align-items:flex-start;margin:0 -18px;padding:34px 18px 20px 40px;scrollbar-width:none}
   .t-grid::-webkit-scrollbar{display:none}
-  .t-stack,.t-grid .col-c{display:contents}
-  .t-grid .t,.t-grid .col-c .t{flex:0 0 82%;scroll-snap-align:center;margin:0}
+  .t-grid .t{flex:0 0 80%;width:80%;min-width:260px;max-width:340px;scroll-snap-align:center;margin:0}
   .swipe{display:block!important}
   .t .av{left:-22px;top:-26px;width:58px;height:58px}
   .logros .grid{grid-template-columns:1fr;gap:28px}
@@ -295,8 +294,8 @@ section{padding:80px 0}
     </a>
     <div class="hero-grid">
       <div class="rv">
-        <h1>Salir del “lo entiendo, pero no hablo” <b>sí es posible</b></h1>
-        <p><b>Fluency</b>, un proceso de transformación diseñado para adultos hispanohablantes que quieren desbloquear su inglés y hablarlo con confianza</p>
+        <h1>Salir del “lo entiendo,<br class="br-d"> <span class="nw">pero no lo hablo” <b>sí es posible</b></span></h1>
+        <p><b>Fluency</b> es un proceso de transformación diseñado para adultos hispanohablantes que quieren desbloquear su inglés y hablarlo con confianza</p>
         <div class="cta left">
           <a class="btn" href="https://wa.me/573023629834?text=Quiero+unirme+a+Fluency" target="_blank" rel="noopener">Quiero unirme</a>
           <span class="cupos" style="padding-left:28px">Cupos limitados</span>
@@ -424,20 +423,14 @@ section{padding:80px 0}
       <iframe src="https://player.vimeo.com/video/1231477017?h=512874bcf2&amp;title=0&amp;byline=0&amp;portrait=0" title="Testimonios de estudiantes de Fluency" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
     </div>
     <div class="t-grid">
-      <div class="t-stack">
-        <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/monica.png" alt="Mónica" loading="lazy"></span><b>Mónica</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“Ahora el inglés es parte de mi vida. Antes me frustraba mucho por no entender nada, ahora cada vez que escucho algo en inglés, entiendo y no me aburro. Siento un gran avance en mi confianza. Si me preguntan si hablo inglés, yo digo que sí. Ya no tengo miedo al hablar y he dejado de juzgarme tanto”</p></figure>
-        <figure class="t rv"><span class="av" style="--s:1.184"><img src="img/diego.png" alt="Diego" loading="lazy"></span><b>Diego</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“He mejorado mucho mi inglés desde que empecé el programa y ahora me siento muy cómodo. Me gusta que siempre hay un tema nuevo”</p></figure>
-      </div>
-      <div class="t-stack col-b">
-        <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/carlos.png" alt="Carlos" loading="lazy"></span><b>Carlos</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“Empecé con miedo, pero las prácticas de speaking son un entorno seguro en el que he aprendido a disfrutar de hablar en inglés, he conocido personas maravillosas y se han ido mis inseguridades”</p></figure>
-        <figure class="t rv"><span class="av" style="--s:1.467"><img src="img/oswaldo.png" alt="Oswaldo" loading="lazy"></span><b>Oswaldo</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“El programa me ha ayudado y servido para obtener un aprendizaje más rápido y eficaz”</p></figure>
-        <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/josue.png" alt="Josué" loading="lazy"></span><b>Josué</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“El programa fue mucho más de lo que esperaba, me ayudó a crear hábitos con el inglés y a superar miedos y barreras mentales. Hoy lo entiendo mucho mejor y puedo tener conversaciones con confianza, se volvió parte de mi día a día y algo que realmente disfruto.”</p></figure>
-      </div>
-      <div class="t-stack col-c">
-        <figure class="t rv"><span class="av" style="--s:1.260"><img src="img/sofia.png" alt="Sofía" loading="lazy"></span><b>Sofía</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“He logrado ver el inglés de otra manera y ahora me gusta. Antes siempre evitaba hablar en inglés. Ahora puedo comunicarme con personas de todo el mundo y eso ha cambiado mi experiencia al viajar porque antes no podía hacerlo”</p></figure>
-        <figure class="t rv"><span class="av" style="--s:1.222;--x:3.2%"><img src="img/paloma.png" alt="Paloma" loading="lazy"></span><b>Paloma</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“El programa me ha ayudado a sentirme más segura al hablar y, para ser honesta, ahora me siento mucho más cómoda cuando tengo que hablar en inglés, incluso con nativos. Me gustan las clases porque son diferentes”</p></figure>
-        <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/yuli.png" alt="Yuli" loading="lazy"></span><b>Yuli</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“He notado que mi pronunciación es más clara y mi fluidez ha aumentado. Esto es algo que tanto mis hijos como mi esposo me han resaltado. He sentido un avance importante en mi speaking. Me siento con más confianza, ya no me da pena, simplemente hablo y expreso lo que pienso”</p></figure>
-      </div>
+      <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/monica.png" alt="Mónica" loading="lazy"></span><b>Mónica</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“Ahora el inglés es parte de mi vida. Antes me frustraba mucho por no entender nada, ahora cada vez que escucho algo en inglés, entiendo y no me aburro. Siento un gran avance en mi confianza. Si me preguntan si hablo inglés, yo digo que sí. Ya no tengo miedo al hablar y he dejado de juzgarme tanto”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/carlos.png" alt="Carlos" loading="lazy"></span><b>Carlos</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“Empecé con miedo, pero las prácticas de speaking son un entorno seguro en el que he aprendido a disfrutar de hablar en inglés, he conocido personas maravillosas y se han ido mis inseguridades”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.260"><img src="img/sofia.png" alt="Sofía" loading="lazy"></span><b>Sofía</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“He logrado ver el inglés de otra manera y ahora me gusta. Antes siempre evitaba hablar en inglés. Ahora puedo comunicarme con personas de todo el mundo y eso ha cambiado mi experiencia al viajar porque antes no podía hacerlo”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.184"><img src="img/diego.png" alt="Diego" loading="lazy"></span><b>Diego</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“He mejorado mucho mi inglés desde que empecé el programa y ahora me siento muy cómodo. Me gusta que siempre hay un tema nuevo”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.467"><img src="img/oswaldo.png" alt="Oswaldo" loading="lazy"></span><b>Oswaldo</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“El programa me ha ayudado y servido para obtener un aprendizaje más rápido y eficaz”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.222;--x:3.2%"><img src="img/paloma.png" alt="Paloma" loading="lazy"></span><b>Paloma</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“El programa me ha ayudado a sentirme más segura al hablar y, para ser honesta, ahora me siento mucho más cómoda cuando tengo que hablar en inglés, incluso con nativos. Me gustan las clases porque son diferentes”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/yuli.png" alt="Yuli" loading="lazy"></span><b>Yuli</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“He notado que mi pronunciación es más clara y mi fluidez ha aumentado. Esto es algo que tanto mis hijos como mi esposo me han resaltado. He sentido un avance importante en mi speaking. Me siento con más confianza, ya no me da pena, simplemente hablo y expreso lo que pienso”</p></figure>
+      <figure class="t rv"><span class="av" style="--s:1.262"><img src="img/josue.png" alt="Josué" loading="lazy"></span><b>Josué</b><div class="stars" aria-label="5 estrellas">★★★★★</div><p>“El programa fue mucho más de lo que esperaba, me ayudó a crear hábitos con el inglés y a superar miedos y barreras mentales. Hoy lo entiendo mucho mejor y puedo tener conversaciones con confianza, se volvió parte de mi día a día y algo que realmente disfruto.”</p></figure>
     </div>
     <p class="swipe" style="display:none;text-align:center;font-size:.85rem;color:var(--muted)">Desliza para ver más →</p>
   </div>
